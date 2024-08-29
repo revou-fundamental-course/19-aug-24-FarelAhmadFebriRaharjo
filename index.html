@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>My Website</title>
+    <script src="/Java/script.js"></script>
+</head>
+<body>
+    <nav>
+        <div><img src="revou.webp" alt="" width="150px"></div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Our Profile</a></li>
+            <li><a href="#">Achievement</a></li>
+            <li><a href="#">Message Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="Header">
+        <h2>Hi Harfi, Welcome To Website</h2>
+        <p>Ini adalah website latihan pertama</p>
+    </div>
+    <hr>
+    <div class="slide2">
+        <h2>Our Facilitation</h2>
+        <div class="gambar">
+            <div class="fto1"></div>
+            <p>Professional Teacher</p>
+        </div>
+        <div class="gambar">
+            <div class="fto1"></div>
+            <p>Sport Field</p>
+        </div>
+        <div class="gambar">
+            <div class="fto1"></div>
+            <p>Classroom</p>
+        </div>
+    </div>
+    <div class="last">
+        <h2>Message Us</h2>
+        <div class="messageus">
+            <form id="messageForm">
+                <label for="name">Nama:</label>
+                <input type="text" id="name" name="name" placeholder="Nama" required>
+
+                <label for="dob">Tanggal Lahir:</label>
+                <input type="date" id="dob" name="dob" required>
+
+                <label for="gender">Jenis Kelamin:</label>
+                <div>
+                    <input type="radio" id="male" name="gender" value="Laki-laki" required>
+                    <label for="male">Laki-laki</label>
+
+                    <input type="radio" id="female" name="gender" value="Perempuan">
+                    <label for="female">Perempuan</label>
+                </div>
+
+                <label for="message">Pesan:</label>
+                <textarea id="message" name="message" cols="20" rows="5" required></textarea>
+
+                <div class="submit-button">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+
+            <div class="output" id="output"></div>
+        </div>
+    </div>
+    <hr>
+    <footer>
+        <h5>Created by RevoU</h5>
+    </footer>
+    <script>
+        document.getElementById('messageForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from refreshing the page
+
+    // Get form values
+    const name = document.getElementById('name').value;
+    const dob = document.getElementById('dob').value;
+    const gender = document.querySelector('input[name="gender"]:checked').value;
+    const message = document.getElementById('message').value;
+
+    // Get current date and time
+    const currentTime = new Date().toLocaleString();
+
+    // Display the output
+    const outputDiv = document.getElementById('output');
+    outputDiv.innerHTML = `
+        <p><strong>Current Time:</strong> ${currentTime}</p>
+        <p><strong>Nama:</strong> ${name}</p>
+        <p><strong>Tanggal Lahir:</strong> ${dob}</p>
+        <p><strong>Jenis Kelamin:</strong> ${gender}</p>
+        <p><strong>Pesan:</strong> ${message}</p>
+    `;
+});
+    </script>
+</body>
+</html>
